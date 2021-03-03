@@ -4,6 +4,7 @@ import {AuthService} from '../service/auth-service';
 import {Router} from '@angular/router';
 
 
+
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -23,7 +24,6 @@ export class AuthComponent implements OnInit {
         data => {
           localStorage.removeItem('token');
           localStorage.setItem('token', data);
-          this.toMainPage();
           this.obtainUserData();
         },
         error => {
@@ -34,7 +34,8 @@ export class AuthComponent implements OnInit {
   }
 
   toMainPage(): void {
-    this.router.navigateByUrl('/');
+    console.log('Navigated');
+    this.router.navigateByUrl('');
   }
 
   obtainUserData(): void {
@@ -43,6 +44,8 @@ export class AuthComponent implements OnInit {
         localStorage.setItem('username', data.username);
         localStorage.setItem('email', data.email);
         localStorage.setItem('role', data.authorities[0].authority);
+        console.log('Stored data');
+        this.toMainPage();
       },
       error => console.log(error));
   }
@@ -52,6 +55,13 @@ export class AuthComponent implements OnInit {
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     });
+  }
+
+  clearAuthInfo(): void {
+    localStorage.removeItem('username');
+    localStorage.removeItem('email');
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/login');
   }
 
 

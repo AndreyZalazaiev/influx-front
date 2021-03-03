@@ -30,4 +30,16 @@ export class AuthService {
     }
   }
 
+  clearAuthInfo() {
+    localStorage.removeItem('username');
+    localStorage.removeItem('email');
+    localStorage.removeItem('role');
+    localStorage.removeItem('token');
+
+  }
+
+  isAuthorized(): boolean {
+    return localStorage.getItem('token') != null;
+  }
+
 }

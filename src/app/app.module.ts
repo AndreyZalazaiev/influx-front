@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {RouterModule, Routes} from '@angular/router';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {MatMenuModule} from '@angular/material/menu';
@@ -23,19 +23,23 @@ import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {AuthComponent} from '../auth/auth.component';
-import {HomeComponent} from './home/home.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {CompanyComponent} from './company/company.component';
+import {CompanyComponent} from '../company/company.component';
+import {HomeComponent} from '../home/home.component';
+import {Guard} from '../guard/guard';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {RegisterComponent} from '../register/register.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: AuthComponent},
-  {path: '', component: AppComponent},
-  {path: 'company', component: CompanyComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: '', component: CompanyComponent, canActivate: [Guard]}
 ];
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -47,7 +51,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     AuthComponent,
     HomeComponent,
-    CompanyComponent
+    CompanyComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +95,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatExpansionModule,
     MatTabsModule,
     MatPaginatorModule,
-    MatChipsModule
+    MatChipsModule,
+    NgbModule,
+    MDBBootstrapModule.forRoot(),
+    NoopAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
