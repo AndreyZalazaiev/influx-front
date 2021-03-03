@@ -24,17 +24,18 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {AuthComponent} from '../auth/auth.component';
 import {HomeComponent} from './home/home.component';
-import {LayoutModule} from '@angular/cdk/layout';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {CompanyComponent} from './company/company.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: AuthComponent},
-  {path: '', component: AppComponent}
+  {path: '', component: AppComponent},
+  {path: 'company', component: CompanyComponent}
 ];
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -45,7 +46,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     AuthComponent,
-    HomeComponent
+    HomeComponent,
+    CompanyComponent
   ],
   imports: [
     BrowserModule,
