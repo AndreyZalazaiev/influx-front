@@ -6,7 +6,7 @@ import {Sales} from './sales';
 export class Company {
   id: number;
   idUser: number;
-  number: string;
+  name: string;
   recommendations: Recommendations[];
   resource: Resource[];
   sales: Sales[];

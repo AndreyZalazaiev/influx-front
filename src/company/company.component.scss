@@ -1,0 +1,22 @@
+.list-group-item:hover {
+ background: #00bfff;
+
+}
+.list-group-item:focus {
+background: azure;
+}
+
+.content{
+padding: 20px;
+  display: flex;
+}
+.list-group{
+  max-width: 15%;
+  min-width: 15%;
+}
+.navs{
+  margin: 0px 10px 10px 10px;
+}
+.nav-link{
+  margin-left: 10px;
+}

@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     const lang = localStorage.getItem('lang');
 
-    document.getElementById('dropdownList').append(p);
     if (lang != null) {
       this.translate.use(lang);
     }
