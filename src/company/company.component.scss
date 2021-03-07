@@ -1,3 +1,4 @@
+
 .list-group-item:hover {
  background: #00bfff;
 
@@ -6,17 +7,25 @@
 background: azure;
 }
 
-.content{
-padding: 20px;
-  display: flex;
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "Header Tabs Tabs Tabs"
+    "Nav Content Content Content"
+    "Nav Content Content Content";
 }
-.list-group{
-  max-width: 15%;
-  min-width: 15%;
+.Tabs {
+  grid-area: Tabs;
 }
-.navs{
-  margin: 0px 10px 10px 10px;
+.Nav {
+  grid-area: Nav;
 }
-.nav-link{
-  margin-left: 10px;
+.Header {
+  grid-area: Header;
+}
+.Content {
+  grid-area: Content;
 }

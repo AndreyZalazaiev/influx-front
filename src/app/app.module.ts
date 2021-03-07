@@ -35,6 +35,10 @@ import {Guard} from '../guard/guard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {RegisterComponent} from '../register/register.component';
+import { ResourceComponent } from '../resource/resource.component';
+import { SalesComponent } from '../sales/sales.component';
+import { VisitsComponent } from '../visits/visits.component';
+import { RecommendationComponent } from '../recommendation/recommendation.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: AuthComponent},
@@ -52,7 +56,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     AuthComponent,
     HomeComponent,
     CompanyComponent,
-    RegisterComponent
+    RegisterComponent,
+    ResourceComponent,
+    SalesComponent,
+    VisitsComponent,
+    RecommendationComponent
   ],
   imports: [
     BrowserModule,

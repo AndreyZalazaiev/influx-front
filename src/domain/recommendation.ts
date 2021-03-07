@@ -1,4 +1,4 @@
-export class Recommendations {
+export class Recommendation {
   id: number;
   idComapny: number;
   text: string;

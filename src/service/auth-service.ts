@@ -42,4 +42,9 @@ export class AuthService {
     return localStorage.getItem('token') != null;
   }
 
+  getToken() {
+    const token = localStorage.getItem('token');
+    return  {Authorization: `Bearer ${token}`};
+  }
+
 }
