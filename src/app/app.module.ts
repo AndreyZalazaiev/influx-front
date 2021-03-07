@@ -39,6 +39,7 @@ import { ResourceComponent } from '../resource/resource.component';
 import { SalesComponent } from '../sales/sales.component';
 import { VisitsComponent } from '../visits/visits.component';
 import { RecommendationComponent } from '../recommendation/recommendation.component';
+import {JwPaginationModule} from 'jw-angular-pagination';
 
 const appRoutes: Routes = [
   {path: 'login', component: AuthComponent},
@@ -107,6 +108,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgbModule,
     MDBBootstrapModule.forRoot(),
     NoopAnimationsModule,
+    JwPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

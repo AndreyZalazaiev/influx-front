@@ -10,7 +10,6 @@
     <mat-tab-group backgroundColor="warn" (selectedTabChange)="tabClick($event)" #tabs>
       <mat-tab [disabled]="true"></mat-tab>
       <mat-tab label="Resources" [class.active]="selectedTab=='Resources'"></mat-tab>
-      <mat-tab label="Sales" [class.active]="selectedTab=='Sales'"></mat-tab>
       <mat-tab label="Visits" [class.active]="selectedTab=='Visits'"></mat-tab>
       <mat-tab label="Recommendations" [class.active]="selectedTab=='Recommendations'"></mat-tab>
     </mat-tab-group>
@@ -20,7 +19,6 @@
     <div [ngSwitch]="selectedTab">
       <app-visits *ngSwitchCase="'Visits'" [idCompany]="idSelectedCompany"></app-visits>
       <app-resource *ngSwitchCase="'Resources'" [idCompany]="idSelectedCompany"></app-resource>
-      <app-sales *ngSwitchCase="'Sales'" [idCompany]="idSelectedCompany"></app-sales>
       <app-recommendation *ngSwitchCase="'Recommendations'" [idCompany]="idSelectedCompany"></app-recommendation>
       <div *ngSwitchDefault></div>
     </div>

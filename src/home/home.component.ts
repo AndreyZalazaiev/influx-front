@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
 
   switchLang(lang): void {
     localStorage.setItem('lang', lang);
+    AuthService.language = lang;
     this.translate.use(lang);
   }
 

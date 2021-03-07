@@ -10,6 +10,7 @@ import {User} from '../domain/user';
 })
 
 export class AuthService {
+  public static language = 'EN';
 
   constructor(private http: HttpClient) {
   }
@@ -29,7 +30,6 @@ export class AuthService {
       return this.http.get<User>(`${baseUrl}/profile`, {headers: header});
     }
   }
-
   clearAuthInfo() {
     localStorage.removeItem('username');
     localStorage.removeItem('email');
@@ -44,7 +44,7 @@ export class AuthService {
 
   getToken() {
     const token = localStorage.getItem('token');
-    return  {Authorization: `Bearer ${token}`};
+    return {Authorization: `Bearer ${token}`};
   }
 
 }

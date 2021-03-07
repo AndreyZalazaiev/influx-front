@@ -4,8 +4,8 @@ import {baseUrl} from '../environments/environment';
 import {Company} from '../domain/company';
 import {HttpClient} from '@angular/common/http';
 import {AuthService} from './auth-service';
-import {Recommendation} from '../domain/recommendation';
 import {Stats} from '../domain/stats';
+import {Recommendation} from '../domain/recommendation';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +19,13 @@ export class CompanyService {
   }
 
   public getRecommendations(id): Observable<Recommendation[]> {
-    return this.http.get<Recommendation[]>(`${baseUrl}/stats/` + id, {headers: this.authService.getToken()});
+    return this.http.get<Recommendation[]>(`${baseUrl}/stats/` + id + '?lang=' + AuthService.language,
+      {headers: this.authService.getToken()});
   }
 
   public getStats(id): Observable<Stats[]> {
-    return this.http.get<Stats[]>(`${baseUrl}/recommendation/` + id, {headers: this.authService.getToken()});
+    return this.http.get<Stats[]>(`${baseUrl}/recommendation/` + id + '?lang=' + AuthService.language,
+      {headers: this.authService.getToken()});
   }
 
 }

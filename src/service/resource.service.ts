@@ -13,7 +13,8 @@ export class ResourceService {
   constructor(private http: HttpClient, private authService: AuthService) {
   }
   public getResources(idCompany): Observable<Resource[]> {
-    return this.http.get<Resource[]>(`${baseUrl}/resource/` + idCompany, {headers: this.authService.getToken()});
+    return this.http.get<Resource[]>(`${baseUrl}/resource/` + idCompany + '?lang=' + AuthService.language,
+      {headers: this.authService.getToken()});
   }
 }
 

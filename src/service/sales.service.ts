@@ -14,6 +14,7 @@ export class SalesService {
   constructor(private http: HttpClient, private authService: AuthService) {
   }
   public getSales(idCompany): Observable<Sales[]> {
-    return this.http.get<Sales[]>(`${baseUrl}/sales/` + idCompany, {headers: this.authService.getToken()});
+    return this.http.get<Sales[]>(`${baseUrl}/sales/` + idCompany + '?lang=' + AuthService.language,
+      {headers: this.authService.getToken()});
   }
 }
