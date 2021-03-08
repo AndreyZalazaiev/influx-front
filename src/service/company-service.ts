@@ -31,12 +31,12 @@ export class CompanyService {
   }
 
   public getRecommendations(id): Observable<Recommendation[]> {
-    return this.http.get<Recommendation[]>(`${baseUrl}/stats/` + id + '?lang=' + AuthService.language,
+    return this.http.get<Recommendation[]>(`${baseUrl}/recommendation/` + id + '?lang=' + AuthService.language,
       {headers: this.authService.getToken()});
   }
 
   public getStats(id): Observable<Stats[]> {
-    return this.http.get<Stats[]>(`${baseUrl}/recommendation/` + id + '?lang=' + AuthService.language,
+    return this.http.get<Stats[]>(`${baseUrl}/stats/` + id + '?lang=' + AuthService.language,
       {headers: this.authService.getToken()});
   }
 

@@ -41,6 +41,7 @@ import { RecommendationComponent } from '../recommendation/recommendation.compon
 import {JwPaginationModule} from 'jw-angular-pagination';
 import {CompanyFormComponent} from '../company/company-form/company-form.component';
 import {ConfirmationDialogComponent} from '../confirmation-dialog/confirmation-dialog.component';
+import {BarChartModule} from '@swimlane/ngx-charts';
 
 const appRoutes: Routes = [
   {path: 'login', component: AuthComponent},
@@ -111,6 +112,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MDBBootstrapModule.forRoot(),
     NoopAnimationsModule,
     JwPaginationModule,
+    BarChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

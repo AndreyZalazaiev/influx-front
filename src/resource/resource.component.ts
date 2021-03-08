@@ -10,7 +10,7 @@ import {Sales} from '../domain/sales';
   styleUrls: ['./resource.component.scss']
 })
 export class ResourceComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'price'];
+  displayedColumns: string[] = ['id', 'name', 'price', 'update/delete'];
   public resources: Resource[];
   public sales: Sales[];
   @Input() idCompany: number;
@@ -37,4 +37,15 @@ export class ResourceComponent implements OnInit {
     this.loadSalesById(this.idCompany);
   }
 
+  createDialog(): void {
+
+  }
+
+  update(element: Resource): void {
+
+  }
+
+  delete(element: Resource): void {
+
+  }
 }
