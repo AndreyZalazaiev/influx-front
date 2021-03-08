@@ -3,7 +3,13 @@
 
   <div class="Nav">
     <div class="list-group-item waves-light" *ngFor="let company of companies" mdbWavesEffect
-         (click)="onCompanySelected(company.id);" [class.active]="company.id==idSelectedCompany">{{company.name}}</div>
+         (click)="onCompanySelected(company.id);" [class.active]="company.id==idSelectedCompany">{{company.name}}
+      <div class="buttons">
+      <img class="mat-icon icon" src="/assets/images/edit_icon.png" (click)="updateDialog(company.id)">
+      <img class="mat-icon icon" src="/assets/images/delete_icon.png" (click)="delete(company)">
+      </div>
+    </div>
+    <img class="mat-icon icon" src="/assets/images/plus_icon.png" (click)="createDialog()">
   </div>
 
   <div class="Tabs">

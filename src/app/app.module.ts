@@ -36,10 +36,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {RegisterComponent} from '../register/register.component';
 import { ResourceComponent } from '../resource/resource.component';
-import { SalesComponent } from '../sales/sales.component';
 import { VisitsComponent } from '../visits/visits.component';
 import { RecommendationComponent } from '../recommendation/recommendation.component';
 import {JwPaginationModule} from 'jw-angular-pagination';
+import {CompanyFormComponent} from '../company/company-form/company-form.component';
+import {ConfirmationDialogComponent} from '../confirmation-dialog/confirmation-dialog.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: AuthComponent},
@@ -59,9 +60,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     CompanyComponent,
     RegisterComponent,
     ResourceComponent,
-    SalesComponent,
     VisitsComponent,
-    RecommendationComponent
+    RecommendationComponent,
+    CompanyFormComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
