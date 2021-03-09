@@ -3,6 +3,10 @@ import {Resource} from '../domain/resource';
 import {ResourceService} from '../service/resource.service';
 import {SalesService} from '../service/sales.service';
 import {Sales} from '../domain/sales';
+import {MatDialog} from '@angular/material/dialog';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {ResourceFormComponent} from './resource-form/resource-form.component';
+import {ConfirmationDialogComponent} from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-resource',
@@ -15,7 +19,7 @@ export class ResourceComponent implements OnInit {
   public sales: Sales[];
   @Input() idCompany: number;
 
-  constructor(private resourceService: ResourceService, private salesService: SalesService) {
+  constructor(private resourceService: ResourceService, private salesService: SalesService, private  dialog: MatDialog, private modalService: NgbModal) {
   }
 
   public loadResourcesById(id): void {
@@ -38,14 +42,50 @@ export class ResourceComponent implements OnInit {
   }
 
   createDialog(): void {
-
+    const dialogRef = this.dialog.open(ResourceFormComponent);
+    dialogRef.componentInstance.idCompany = this.idCompany;
+    this.dialog.afterAllClosed.subscribe(() => {
+      this.loadResourcesById(this.idCompany);
+    });
   }
 
-  update(element: Resource): void {
+  updateDialog(element: Resource): void {
+    const dialogRef = this.dialog.open(ResourceFormComponent);
+    dialogRef.componentInstance.idResource = element.id;
+    dialogRef.componentInstance.title = 'Update info';
 
+    this.dialog.afterAllClosed.subscribe(() => {
+        console.log('Reloaded');
+        this.loadResourcesById(this.idCompany);
+      },
+      error => {
+        console.log(error);
+      });
   }
 
-  delete(element: Resource): void {
+  deleteDialog(element: Resource): void {
+    this.confirm('Please confirm', 'Do you really want to delete ?')
+      .then((confirmed) => {
+        if (confirmed) {
+          this.resourceService.deleteResource(element).subscribe(() => this.loadResourcesById(this.idCompany));
+        }
+      })
+      .catch(() => console.log('User dismissed the dialog '));
+  }
 
+
+  public confirm(
+    title: string,
+    message: string,
+    btnOkText: string = 'OK',
+    btnCancelText: string = 'Cancel',
+    dialogSize: 'sm' | 'lg' = 'sm'): Promise<boolean> {
+    const modalRef = this.modalService.open(ConfirmationDialogComponent, {size: dialogSize});
+    modalRef.componentInstance.title = title;
+    modalRef.componentInstance.message = message;
+    modalRef.componentInstance.btnOkText = btnOkText;
+    modalRef.componentInstance.btnCancelText = btnCancelText;
+
+    return modalRef.result;
   }
 }

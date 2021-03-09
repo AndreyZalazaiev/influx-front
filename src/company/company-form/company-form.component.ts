@@ -36,7 +36,8 @@ export class CompanyFormComponent implements OnInit {
 
 
   processCompany(): void {
-    if (this.idCompany == null) {
+    console.log('#Process company');
+    if (!this.idCompany) {
       this.createCompany();
     } else {
       this.updateCompany();
@@ -44,7 +45,8 @@ export class CompanyFormComponent implements OnInit {
   }
 
   updateCompany(): void {
-    const c: Company = new Company();
+    console.log('#Update company');
+    const c = new Company();
     c.id = this.idCompany;
     if (this.formGroup.valid) {
       c.name = this.formGroup.controls['companyName'].value;
@@ -55,7 +57,8 @@ export class CompanyFormComponent implements OnInit {
   }
 
   createCompany(): void {
-    const c: Company = new Company();
+    console.log('#Create company');
+    const c = new Company();
     if (this.formGroup.valid) {
       c.name = this.formGroup.controls['companyName'].value;
       this.companyService.createCompany(c).subscribe(() => {

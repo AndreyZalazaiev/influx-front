@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-content>
-    <form [formGroup]="formGroup" (ngSubmit)="createCompany()">
+    <form [formGroup]="formGroup">
       <h2>{{title}}</h2>
       <mat-form-field class="full-width-input">
         <input matInput placeholder="Cool company" formControlName="companyName" required>
@@ -10,8 +10,9 @@
       </mat-form-field>
     </form>
     <div class="buttons">
-    <button mat-raised-button color="primary" class="btn"  [mat-dialog-close]="false"(click)="closeDialog()">Discard</button>
-    <button mat-raised-button color="primary" class="btn" [mat-dialog-close]="true" (click)="processCompany()">{{textOnBtn}}</button>
+      <button mat-raised-button color="primary" class="btn" [mat-dialog-close]="false" (click)="closeDialog()">Discard
+      </button>
+      <button mat-raised-button color="primary" class="btn" [mat-dialog-close]="true" (click)="processCompany()">{{textOnBtn}}</button>
     </div>
   </mat-card-content>
 </mat-card>
