@@ -3,16 +3,13 @@
   {{rec.date}}
 </div>
 
-<ngx-charts-bar-vertical
-  [scheme]="colorScheme"
-  [results]="chartData"
-  [gradient]="gradient"
-  [xAxis]="showXAxis"
-  [yAxis]="showYAxis"
-  [legend]="showLegend"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel"
-  (select)="onSelect($event)">
-</ngx-charts-bar-vertical>
+<div style="display: block" *ngIf="chartDataReady">
+  <canvas mdbChart
+          [chartType]="chartType"
+          [datasets]="chartDatasets"
+          [labels]="chartLabels"
+          [colors]="chartColors"
+          [options]="chartOptions"
+          [legend]="true">
+  </canvas>
+</div>

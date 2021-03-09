@@ -13,17 +13,34 @@ export class RecommendationComponent implements OnInit {
   @Input() idCompany: number;
   public recommendations: Recommendation[];
   public stats: Stats[];
-  chartData: any[];
-  showXAxis = true;
-  showYAxis = true;
-  gradient = false;
-  showLegend = true;
-  showXAxisLabel = true;
-  xAxisLabel = 'Resource';
-  showYAxisLabel = true;
-  yAxisLabel = 'Count';
-  colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  public chartType= 'bar';
+  public chartDataReady = false;
+
+  public chartDatasets: Array<any> = [];
+  public chartLabels: Array<any> = [];
+  public chartColors: Array<any> = [
+    {
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 2,
+    }
+  ];
+  public chartOptions: any = {
+    responsive: true
   };
 
   constructor(private companyService: CompanyService) {
@@ -41,8 +58,12 @@ export class RecommendationComponent implements OnInit {
       this.companyService.getStats(id)
         .subscribe(s => {
           this.stats = s;
-          this.chartData = this.stats.map(st => [st.name, st.count]);
-          console.log(this.chartData);
+          this.chartDatasets.push({
+            data: s.map(item => item.count),
+            label: 'Stats'
+          });
+          s.forEach(item => this.chartLabels.push(item.name));
+          this.chartDataReady = true;
         });
     }
   }
@@ -52,7 +73,4 @@ export class RecommendationComponent implements OnInit {
 
   }
 
-  onSelect($event: any): void {
-    console.log($event);
-  }
 }
