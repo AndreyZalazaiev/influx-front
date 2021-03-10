@@ -16,10 +16,9 @@
       </mat-form-field>
     </form>
     <div class="buttons">
-      <button mat-raised-button color="primary" class="btn" [mat-dialog-close]="false" (click)="closeDialog()">Discard
+      <button mat-raised-button color="primary" class="btn" (click)="closeDialog()">Discard
       </button>
-      <button mat-raised-button color="primary" class="btn" [mat-dialog-close]="true"
-              (click)="processResource()">{{textOnBtn}}</button>
+      <button mat-raised-button color="primary" class="btn" (click)="processResource()">{{textOnBtn}}</button>
     </div>
   </mat-card-content>
 </mat-card>

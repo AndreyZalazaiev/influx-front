@@ -45,6 +45,7 @@ import {BarChartModule} from '@swimlane/ngx-charts';
 import {ResourceFormComponent} from '../resource/resource-form/resource-form.component';
 import {ProfileComponent} from '../home/profile/profile.component';
 import { AdminToolsComponent } from '../admin-tools/admin-tools.component';
+import {UserFormComponent} from '../admin-tools/user-form/user-form.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: AuthComponent},
@@ -71,7 +72,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ConfirmationDialogComponent,
     ResourceFormComponent,
     ProfileComponent,
-    AdminToolsComponent
+    AdminToolsComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,

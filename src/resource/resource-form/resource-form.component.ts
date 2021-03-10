@@ -6,7 +6,7 @@ import {ResourceService} from '../../service/resource.service';
 import {Resource} from '../../domain/resource';
 
 @Component({
-  selector: 'app-company-form',
+  selector: 'app-resource-form',
   templateUrl: './resource-form.component.html',
   styleUrls: ['./resource-form.component.css']
 })

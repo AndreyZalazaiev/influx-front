@@ -2,9 +2,9 @@
   <mat-tab-group backgroundColor="warn" (selectedTabChange)="tabClick($event)" #tabs>
     <mat-tab [disabled]="true"></mat-tab>
     <!--Users tab-->
-    <mat-tab label="Users" [class.active]="selectedTab=='Users'">
+    <mat-tab label="Users" [class.active]="selectedTab=='Users'" >
 
-      <table mat-table [dataSource]="users" class="mat-elevation-z2">
+      <table mat-table [dataSource]="users" class="mat-elevation-z2" >
 
         <ng-container matColumnDef="username" width="33%">
           <th mat-header-cell *matHeaderCellDef width="25%"> Username</th>
