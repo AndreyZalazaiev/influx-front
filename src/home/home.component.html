@@ -1,7 +1,7 @@
 <!--Navbar-->
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark primary-color" [containerInside]="false">
   <!-- Navbar brand -->
-  <mdb-navbar-brand>
+  <mdb-navbar-brand routerLink="/">
     <img class="mat-icon icon" src="/assets/images/logo.png">
     <a class="navbar-brand" href="#">Influx</a>
   </mdb-navbar-brand>
@@ -10,13 +10,13 @@
     <!-- Links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item" *ngIf="isOwner">
-        <a class="nav-link waves-light" mdbWavesEffect>
+        <a class="nav-link waves-light" mdbWavesEffect routerLink="/admin">
           <mdb-icon fas icon="cog"></mdb-icon>
           Admin</a>
       </li>
       <!-- Dropdown -->
       <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle  type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+        <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           <mdb-icon fas icon="user"></mdb-icon>
           Profile<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">

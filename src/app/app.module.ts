@@ -49,7 +49,8 @@ import { AdminToolsComponent } from '../admin-tools/admin-tools.component';
 const appRoutes: Routes = [
   {path: 'login', component: AuthComponent},
   {path: 'register', component: RegisterComponent},
-  {path: '', component: CompanyComponent, canActivate: [Guard]}
+  {path: '', component: CompanyComponent, canActivate: [Guard]},
+  {path: 'admin', component: AdminToolsComponent, canActivate: [Guard]}
 ];
 
 export function HttpLoaderFactory(http: HttpClient) {
