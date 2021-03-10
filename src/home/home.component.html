@@ -13,14 +13,15 @@
       </li>
       <!-- Dropdown -->
       <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+        <a dropdownToggle  type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           <mdb-icon fas icon="user"></mdb-icon>
           Profile<span class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-
+          <app-profile></app-profile>
           <mat-nav-list id="dropdownList">
             <a mat-list-item routerLink="/" (click)="clearAuthInfo()">{{'nav.logout'|translate}}</a>
           </mat-nav-list>
+
           <div class="langMenu">
             <button mat-icon-button [matMenuTriggerFor]="menu" style="margin-left: 10px">
               <mat-icon>language</mat-icon>

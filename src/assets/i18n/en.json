@@ -8,6 +8,7 @@
     "logout": "Log out",
     "loggedAs": "Logged as",
     "role": "Role",
-    "hi": "Hi,"
+    "hi": "Hi",
+    "nickname": "Nickname:"
   }
 }

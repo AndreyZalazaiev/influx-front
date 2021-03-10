@@ -32,17 +32,18 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {CompanyComponent} from '../company/company.component';
 import {HomeComponent} from '../home/home.component';
 import {Guard} from '../guard/guard';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {RegisterComponent} from '../register/register.component';
-import { ResourceComponent } from '../resource/resource.component';
-import { VisitsComponent } from '../visits/visits.component';
-import { RecommendationComponent } from '../recommendation/recommendation.component';
+import {ResourceComponent} from '../resource/resource.component';
+import {VisitsComponent} from '../visits/visits.component';
+import {RecommendationComponent} from '../recommendation/recommendation.component';
 import {JwPaginationModule} from 'jw-angular-pagination';
 import {CompanyFormComponent} from '../company/company-form/company-form.component';
 import {ConfirmationDialogComponent} from '../confirmation-dialog/confirmation-dialog.component';
 import {BarChartModule} from '@swimlane/ngx-charts';
 import {ResourceFormComponent} from '../resource/resource-form/resource-form.component';
+import {ProfileComponent} from '../profile/profile.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: AuthComponent},
@@ -66,7 +67,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     RecommendationComponent,
     CompanyFormComponent,
     ConfirmationDialogComponent,
-    ResourceFormComponent
+    ResourceFormComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
