@@ -13,7 +13,7 @@ export class RecommendationComponent implements OnInit {
   @Input() idCompany: number;
   public recommendations: Recommendation[];
   public stats: Stats[];
-  public chartType= 'bar';
+  public chartType = 'bar';
   public chartDataReady = false;
 
   public chartDatasets: Array<any> = [];
@@ -70,6 +70,7 @@ export class RecommendationComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadStatsById(this.idCompany);
+    this.loadRecommendationsById(this.idCompany);
 
   }
 

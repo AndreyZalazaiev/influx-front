@@ -43,7 +43,8 @@ import {CompanyFormComponent} from '../company/company-form/company-form.compone
 import {ConfirmationDialogComponent} from '../confirmation-dialog/confirmation-dialog.component';
 import {BarChartModule} from '@swimlane/ngx-charts';
 import {ResourceFormComponent} from '../resource/resource-form/resource-form.component';
-import {ProfileComponent} from '../profile/profile.component';
+import {ProfileComponent} from '../home/profile/profile.component';
+import { AdminToolsComponent } from '../admin-tools/admin-tools.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: AuthComponent},
@@ -68,7 +69,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CompanyFormComponent,
     ConfirmationDialogComponent,
     ResourceFormComponent,
-    ProfileComponent
+    ProfileComponent,
+    AdminToolsComponent
   ],
   imports: [
     BrowserModule,

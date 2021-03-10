@@ -26,7 +26,12 @@ export class CompanyComponent implements OnInit {
   }
 
   loadCompaniesData(): void {
-    this.companyService.getCompanies().subscribe(c => this.companies = c);
+    this.companyService.getCompanies().subscribe(c => {
+      this.companies = c;
+      if (c.length > 0) {
+        this.idSelectedCompany = c[0].id;
+      }
+    });
   }
 
   onCompanySelected(idSelectedCompany): void {

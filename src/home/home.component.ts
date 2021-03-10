@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
 import {map, shareReplay} from 'rxjs/operators';
@@ -12,9 +12,8 @@ import {AuthService} from '../service/auth-service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('userData') userData: ElementRef;
-  public isAuthorized = false;
 
+  public isOwner = false;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -38,6 +37,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     const lang = localStorage.getItem('lang');
+    localStorage.getItem('role') === 'Owner' ? this.isOwner = true : this.isOwner = false;
 
     if (lang != null) {
       this.translate.use(lang);

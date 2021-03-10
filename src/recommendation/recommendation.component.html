@@ -1,15 +1,21 @@
-<div *ngFor="let rec of recommendations">
-  {{rec.text}}
-  {{rec.date}}
+<div *ngIf="stats; else noData">
+
+  <div style="display: block" *ngIf="chartDataReady">
+    <canvas mdbChart
+            [chartType]="chartType"
+            [datasets]="chartDatasets"
+            [labels]="chartLabels"
+            [colors]="chartColors"
+            [options]="chartOptions"
+            [legend]="true">
+    </canvas>
+  </div>
+  <div *ngFor="let rec of recommendations" class="mat-typography">
+    <pre>{{rec.text}}</pre>
+    <pre>{{rec.date}}</pre>
+  </div>
 </div>
 
-<div style="display: block" *ngIf="chartDataReady">
-  <canvas mdbChart
-          [chartType]="chartType"
-          [datasets]="chartDatasets"
-          [labels]="chartLabels"
-          [colors]="chartColors"
-          [options]="chartOptions"
-          [legend]="true">
-  </canvas>
-</div>
+<ng-template #noData>
+  {{'general.noData'|translate}}
+</ng-template>

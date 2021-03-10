@@ -10,5 +10,8 @@
     "role": "Role",
     "hi": "Hi",
     "nickname": "Nickname:"
+  },
+  "general": {
+    "noData": "There is nothing to display"
   }
 }
