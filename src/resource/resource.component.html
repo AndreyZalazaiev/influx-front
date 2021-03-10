@@ -1,17 +1,11 @@
 <table mat-table [dataSource]="resources" class="mat-elevation-z2">
-
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id</th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-  </ng-container>
-
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef width="33%"> Name</th>
+    <th mat-header-cell *matHeaderCellDef width="42%"> Name</th>
     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
   </ng-container>
 
   <ng-container matColumnDef="price">
-    <th mat-header-cell *matHeaderCellDef width="33%"> Price</th>
+    <th mat-header-cell *matHeaderCellDef width="42%"> Price</th>
     <td mat-cell *matCellDef="let element"> {{element.price}} </td>
   </ng-container>
 

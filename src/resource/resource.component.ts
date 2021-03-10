@@ -14,7 +14,7 @@ import {ConfirmationDialogComponent} from '../confirmation-dialog/confirmation-d
   styleUrls: ['./resource.component.scss']
 })
 export class ResourceComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'price', 'update/delete'];
+  displayedColumns: string[] = ['name', 'price', 'update/delete'];
   public resources: Resource[];
   public sales: Sales[];
   @Input() idCompany: number;
