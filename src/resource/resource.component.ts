@@ -7,6 +7,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ResourceFormComponent} from './resource-form/resource-form.component';
 import {ConfirmationDialogComponent} from '../confirmation-dialog/confirmation-dialog.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-resource',
@@ -20,7 +21,7 @@ export class ResourceComponent implements OnInit {
   @Input() idCompany: number;
   public selectedResource;
 
-  constructor(private resourceService: ResourceService, private salesService: SalesService, private  dialog: MatDialog, private modalService: NgbModal) {
+  constructor(private resourceService: ResourceService, private salesService: SalesService, private  dialog: MatDialog, private modalService: NgbModal, private _snackBar: MatSnackBar) {
   }
 
   public loadResourcesById(id): void {
@@ -71,6 +72,13 @@ export class ResourceComponent implements OnInit {
       .catch(() => console.log('User dismissed the dialog '));
   }
 
+  commitOrder(): void {
+    const sale = new Sales();
+    sale.idResource = this.selectedResource;
+    sale.idCompany = this.idCompany;
+    this.salesService.createSale(sale).subscribe(() => console.log('Sales posted.'));
+    this.openSnackBar('Created', null);
+  }
 
   public confirm(
     title: string,
@@ -87,4 +95,9 @@ export class ResourceComponent implements OnInit {
     return modalRef.result;
   }
 
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
 }

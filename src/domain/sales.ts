@@ -1,7 +1,6 @@
-
 export class Sales {
   id: number;
-  idComapny: number;
+  idCompany: number;
   idResource: number;
   date: Date;
 }
