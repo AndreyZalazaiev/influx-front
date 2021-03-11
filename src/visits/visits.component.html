@@ -1,4 +1,12 @@
-<div *ngFor="let visit of visits">
-  {{visit.date}}
-  {{visit.count}}
-</div>
+
+<table matSort (matSortChange)="sortData($event)" class="table">
+  <tr>
+    <th mat-sort-header="date">Date</th>
+    <th mat-sort-header="count">Count</th>
+  </tr>
+  <tr *ngFor="let visit of sortedData">
+    <td>{{visit.date}}</td>
+    <td>{{visit.count}}</td>
+  </tr>
+</table>
+
