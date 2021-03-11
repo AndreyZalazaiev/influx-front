@@ -1,4 +1,5 @@
-<table mat-table [dataSource]="resources" class="mat-elevation-z2">
+<table mat-table [dataSource]="resources" class="mat-elevation-z2 table-hover">
+
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef width="42%"> Name</th>
     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
@@ -10,16 +11,42 @@
   </ng-container>
 
   <ng-container matColumnDef="update/delete">
-    <th mat-header-cell *matHeaderCellDef ></th>
+    <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element">
       <img class="mat-icon icon" src="/assets/images/edit_icon.png" (click)="updateDialog(element)">
       <img class="mat-icon icon" src="/assets/images/delete_icon.png" (click)="deleteDialog(element)">
     </td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns" width="33%"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      (mouseenter)="onMouseEnterResource(row)"
+      (mouseleave)="onMouseLeave()"
+  ></tr>
 
 </table>
 <img class="mat-icon icon" src="/assets/images/plus_icon.png" (click)="createDialog()">
+
+<hr>
+<select class="browser-default custom-select custom-select-lg mb-3" >
+  <option *ngFor="let res of resources" value="res.name" >{{res.name}}</option>
+</select>
+<button *ngIf="selectedResource">
+  {{selectedResource.id}}
+</button>
+<!--
+  <div class="spookyScaryCode">
+    <table mat-table [dataSource]="sales" class="mat-elevation-z2">
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef width="42%"> Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+  </div>
+-->
+

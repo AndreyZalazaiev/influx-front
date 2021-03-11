@@ -12,7 +12,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 0.2fr 1fr 1fr;
-  gap: 15px 15px;
+  gap: 0px 15px;
   grid-template-areas: "Header Tabs Tabs Tabs" "Nav Content Content Content" "Nav Content Content Content";
 }
 

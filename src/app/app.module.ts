@@ -73,7 +73,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ResourceFormComponent,
     ProfileComponent,
     AdminToolsComponent,
-    UserFormComponent
+    UserFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -121,7 +121,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MDBBootstrapModule.forRoot(),
     NoopAnimationsModule,
     JwPaginationModule,
-    BarChartModule,
+    BarChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

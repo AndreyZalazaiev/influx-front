@@ -18,6 +18,7 @@ export class ResourceComponent implements OnInit {
   public resources: Resource[];
   public sales: Sales[];
   @Input() idCompany: number;
+  public selectedResource;
 
   constructor(private resourceService: ResourceService, private salesService: SalesService, private  dialog: MatDialog, private modalService: NgbModal) {
   }
@@ -29,16 +30,8 @@ export class ResourceComponent implements OnInit {
     }
   }
 
-  public loadSalesById(id): void {
-    if (id) {
-      this.salesService.getSales(id)
-        .subscribe(s => this.sales = s);
-    }
-  }
-
   ngOnInit(): void {
     this.loadResourcesById(this.idCompany);
-    this.loadSalesById(this.idCompany);
   }
 
   createDialog(): void {
@@ -87,5 +80,17 @@ export class ResourceComponent implements OnInit {
     modalRef.componentInstance.btnCancelText = btnCancelText;
 
     return modalRef.result;
+  }
+
+  onMouseEnterResource(element: Resource): void {
+    this.sales = element.sales;
+  }
+
+  onMouseLeave(): void {
+    this.sales = [];
+  }
+
+  getValue($event) {
+    console.log($event)
   }
 }
