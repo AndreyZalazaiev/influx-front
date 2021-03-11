@@ -1,1 +1,17 @@
-
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 0.5fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px 10px;
+  grid-template-areas:
+    "ResourceTable ResourceTable Order Order"
+    "ResourceTable ResourceTable Order Order"
+    "ResourceTable ResourceTable Order Order";
+}
+.Order {
+  grid-area: Order;
+  margin-right: 10px;
+}
+.ResourceTable {
+  grid-area: ResourceTable;
+}

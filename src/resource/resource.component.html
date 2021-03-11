@@ -1,4 +1,5 @@
-<table mat-table [dataSource]="resources" class="mat-elevation-z2 table-hover">
+<div class="grid-container">
+<table mat-table [dataSource]="resources" class="mat-elevation-z2 table-hover"  class="ResourceTable">
 
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef width="42%"> Name</th>
@@ -20,20 +21,21 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-      (mouseenter)="onMouseEnterResource(row)"
-      (mouseleave)="onMouseLeave()"
+      [ngStyle]="selectedResource ==row.id?{'background-color':'gray'} : {}"
+      (click)="selectedResource=row.id"
   ></tr>
 
 </table>
 <img class="mat-icon icon" src="/assets/images/plus_icon.png" (click)="createDialog()">
 
 <hr>
-<select class="browser-default custom-select custom-select-lg mb-3" >
-  <option *ngFor="let res of resources" value="res.name" >{{res.name}}</option>
-</select>
-<button *ngIf="selectedResource">
-  {{selectedResource.id}}
-</button>
+<div *ngIf="selectedResource" class="Order">
+  <select class="browser-default custom-select custom-select-lg mb-3" [(ngModel)]="selectedResource">
+    <option *ngFor="let res of resources" [value]="res.id">{{res.name}}</option>
+  </select>
+  <button type="button" class="btn btn-primary">Order</button>
+</div>
+</div>
 <!--
   <div class="spookyScaryCode">
     <table mat-table [dataSource]="sales" class="mat-elevation-z2">

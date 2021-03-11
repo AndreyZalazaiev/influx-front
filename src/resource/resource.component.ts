@@ -26,7 +26,12 @@ export class ResourceComponent implements OnInit {
   public loadResourcesById(id): void {
     if (id) {
       this.resourceService.getResources(id)
-        .subscribe(r => this.resources = r);
+        .subscribe(r => {
+          this.resources = r;
+          if (this.resources.length > 0) {
+            this.selectedResource = this.resources[0].id;
+          }
+        });
     }
   }
 
@@ -82,15 +87,4 @@ export class ResourceComponent implements OnInit {
     return modalRef.result;
   }
 
-  onMouseEnterResource(element: Resource): void {
-    this.sales = element.sales;
-  }
-
-  onMouseLeave(): void {
-    this.sales = [];
-  }
-
-  getValue($event) {
-    console.log($event)
-  }
 }
