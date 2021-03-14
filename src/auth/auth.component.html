@@ -5,18 +5,19 @@
       <mat-form-field class="full-width-input">
         <input matInput placeholder="Nickname" formControlName="username" required>
         <mat-error>
-          Please provide a valid name
+          {{'form.invalidName'|translate}}
+
         </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width-input">
         <input matInput type="password" placeholder="Password" formControlName="password" required>
         <mat-error>
-          Please provide a valid password
+          {{'form.invalidPassword'|translate}}
         </mat-error>
       </mat-form-field>
-      <p *ngIf="erorsDuringLogin" class="mat-error">Wrong credentials!</p>
-      <button mat-raised-button color="primary">Login</button>
+      <p *ngIf="erorsDuringLogin" class="mat-error"> {{'general.wrongCredentials'|translate}}</p>
+      <button mat-raised-button color="primary"> {{'nav.login'|translate}}</button>
     </form>
   </mat-card-content>
-  <div routerLink="/register"> Register new one!</div>
+  <div routerLink="/register">  {{'nav.register'|translate}}</div>
 </mat-card>

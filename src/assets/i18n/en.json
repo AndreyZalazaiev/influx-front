@@ -14,7 +14,8 @@
     "admin": "Admin"
   },
   "general": {
-    "noData": "There is nothing to display"
+    "noData": "There is nothing to display",
+    "wrongCredentials": "Wrong credentials"
   },
   "resource": {
     "order": "Order",
@@ -39,6 +40,7 @@
     "titleCreate": "Create",
     "invalidEmail": "Please provide valid email",
     "invalidName": "Please provide valid name",
-    "invalidPrice": "Please provide valid price"
+    "invalidPrice": "Please provide valid price",
+    "invalidPassword": "Please provide valid password"
   }
 }

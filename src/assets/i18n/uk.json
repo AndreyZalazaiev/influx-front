@@ -14,7 +14,8 @@
     "admin": "Адміністратор"
   },
   "general": {
-    "noData": "На жаль, інформації ще немає"
+    "noData": "На жаль, інформації ще немає",
+    "wrongCredentials": "Некоректнi данi"
   },
   "resource": {
     "order": "Замовити",
@@ -38,6 +39,7 @@
     "titleCreate": "Створити",
     "invalidEmail": "Надайте коректний email",
     "invalidName": "Надайте правильне ім'я",
-    "invalidPrice": "Надайте правильну ціну"
+    "invalidPrice": "Надайте правильну ціну",
+    "invalidPassword": "Надайте правильний пароль"
   }
 }
