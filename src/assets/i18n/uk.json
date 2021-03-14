@@ -9,9 +9,35 @@
     "loggedAs": "Увiйшли як",
     "role": "Власник",
     "hi": "Привiт",
-    "nickname": "Iм`я"
+    "nickname": "Iм`я",
+    "profile": "Профіль",
+    "admin": "Адміністратор"
   },
   "general": {
     "noData": "На жаль, інформації ще немає"
+  },
+  "resource": {
+    "order": "Замовити",
+    "name": "Назва",
+    "price": "Ціна"
+  },
+  "visit": {
+    "date": "Дата",
+    "count": "Кількість"
+  },
+  "company": {
+    "resource-tab": "Послуги",
+    "visit-tab": "Клієнти",
+    "recommendation-tab": "Рекомендації"
+  },
+  "form": {
+    "update": "Змінити",
+    "create": "Створити",
+    "discard": "Закрити",
+    "titleUpdate": "Оновити інформацію",
+    "titleCreate": "Створити",
+    "invalidEmail": "Надайте коректний email",
+    "invalidName": "Надайте правильне ім'я",
+    "invalidPrice": "Надайте правильну ціну"
   }
 }

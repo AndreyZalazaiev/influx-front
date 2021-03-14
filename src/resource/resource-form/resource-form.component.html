@@ -5,18 +5,18 @@
       <mat-form-field class="full-width-input">
         <input matInput placeholder="Bread... " formControlName="resourceName" required>
         <mat-error>
-          Please provide a valid name
+          {{'form.invalidName'|translate}}
         </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width-input">
         <input matInput placeholder="100 " formControlName="resourcePrice" required>
         <mat-error>
-          Please provide a valid price
+          {{'form.invalidPrice'|translate}}
         </mat-error>
       </mat-form-field>
     </form>
     <div class="buttons">
-      <button mat-raised-button color="primary" class="btn" (click)="closeDialog()">Discard
+      <button mat-raised-button color="primary" class="btn" (click)="closeDialog()"> Discard
       </button>
       <button mat-raised-button color="primary" class="btn" (click)="processResource()">{{textOnBtn}}</button>
     </div>

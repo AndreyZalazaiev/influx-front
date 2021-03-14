@@ -46,6 +46,7 @@ import {ResourceFormComponent} from '../resource/resource-form/resource-form.com
 import {ProfileComponent} from '../home/profile/profile.component';
 import { AdminToolsComponent } from '../admin-tools/admin-tools.component';
 import {UserFormComponent} from '../admin-tools/user-form/user-form.component';
+import {MatSortModule} from '@angular/material/sort';
 
 const appRoutes: Routes = [
   {path: 'login', component: AuthComponent},
@@ -121,7 +122,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MDBBootstrapModule.forRoot(),
     NoopAnimationsModule,
     JwPaginationModule,
-    BarChartModule
+    BarChartModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

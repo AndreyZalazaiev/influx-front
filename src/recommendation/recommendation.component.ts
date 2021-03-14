@@ -10,6 +10,7 @@ import {Stats} from '../domain/stats';
   styleUrls: ['./recommendation.component.scss']
 })
 export class RecommendationComponent implements OnInit {
+  public GATHERING_PERIOD = 90;
   @Input() idCompany: number;
   public recommendations: Recommendation[];
   public stats: Stats[];
@@ -55,7 +56,7 @@ export class RecommendationComponent implements OnInit {
 
   public loadStatsById(id): void {
     if (id) {
-      this.companyService.getStats(id)
+      this.companyService.getStats(id, this.GATHERING_PERIOD)
         .subscribe(s => {
           this.stats = s;
           this.chartDatasets.push({

@@ -9,9 +9,36 @@
     "loggedAs": "Logged as",
     "role": "Role",
     "hi": "Hi",
-    "nickname": "Nickname:"
+    "nickname": "Nickname:",
+    "profile": "Profile",
+    "admin": "Admin"
   },
   "general": {
     "noData": "There is nothing to display"
+  },
+  "resource": {
+    "order": "Order",
+    "name": "Name",
+    "price": "Price"
+  },
+  "visit": {
+    "date": "Date",
+    "count": "Count",
+    "": ""
+  },
+  "company": {
+    "resource-tab": "Resources",
+    "visit-tab": "Visits",
+    "recommendation-tab": "Recommendations"
+  },
+  "form": {
+    "update": "Update",
+    "create": "Create",
+    "discard": "Discard",
+    "titleUpdate": "Update info",
+    "titleCreate": "Create",
+    "invalidEmail": "Please provide valid email",
+    "invalidName": "Please provide valid name",
+    "invalidPrice": "Please provide valid price"
   }
 }

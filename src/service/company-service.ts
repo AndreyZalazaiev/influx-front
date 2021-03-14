@@ -35,8 +35,8 @@ export class CompanyService {
       {headers: this.authService.getToken()});
   }
 
-  public getStats(id): Observable<Stats[]> {
-    return this.http.get<Stats[]>(`${baseUrl}/stats/` + id + '?lang=' + AuthService.language,
+  public getStats(id, period): Observable<Stats[]> {
+    return this.http.get<Stats[]>(`${baseUrl}/stats/` + id + '?lang=' + AuthService.language + '&period=' + period,
       {headers: this.authService.getToken()});
   }
 

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router} from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -10,10 +10,10 @@ export class Guard implements CanActivate {
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (localStorage.getItem('token')!=null) {
+    if (localStorage.getItem('token') != null) {
       return true;
     }
-    this.router.navigateByUrl("/login");
+    this.router.navigateByUrl('/login');
     return false;
   }
 

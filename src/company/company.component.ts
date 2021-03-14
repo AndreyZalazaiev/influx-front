@@ -14,7 +14,7 @@ import {ConfirmationDialogComponent} from '../confirmation-dialog/confirmation-d
 })
 export class CompanyComponent implements OnInit {
   public idSelectedCompany: number;
-  public selectedTab = 'none';
+  public selectedTabId = 0;
   public companies: Company[];
   @ViewChild('tabs') tabGroup: MatTabGroup;
 
@@ -41,7 +41,7 @@ export class CompanyComponent implements OnInit {
   }
 
   tabClick($event: MatTabChangeEvent): void {
-    this.selectedTab = $event.tab.textLabel;
+    this.selectedTabId = $event.index
   }
 
   createDialog(): void {

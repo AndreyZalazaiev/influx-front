@@ -1,14 +1,14 @@
 <div class="grid-container">
   <div class="Header">
-    Logo placeholder
+    <!--Logo placeholder-->
   </div>
 
   <div class="Nav">
     <div class="list-group-item waves-light" *ngFor="let company of companies" mdbWavesEffect
          (click)="onCompanySelected(company.id);" [class.active]="company.id==idSelectedCompany">{{company.name}}
       <div class="buttons">
-      <img class="mat-icon icon" src="/assets/images/edit_icon.png" (click)="updateDialog(company.id)">
-      <img class="mat-icon icon" src="/assets/images/delete_icon.png" (click)="delete(company)">
+        <img class="mat-icon icon" src="/assets/images/edit_icon.png" (click)="updateDialog(company.id)">
+        <img class="mat-icon icon" src="/assets/images/delete_icon.png" (click)="delete(company)">
       </div>
     </div>
     <img class="mat-icon icon" src="/assets/images/plus_icon.png" (click)="createDialog()">
@@ -17,17 +17,17 @@
   <div class="Tabs">
     <mat-tab-group backgroundColor="warn" (selectedTabChange)="tabClick($event)" #tabs>
       <mat-tab [disabled]="true"></mat-tab>
-      <mat-tab label="Resources" [class.active]="selectedTab=='Resources'"></mat-tab>
-      <mat-tab label="Visits" [class.active]="selectedTab=='Visits'"></mat-tab>
-      <mat-tab label="Recommendations" [class.active]="selectedTab=='Recommendations'"></mat-tab>
+      <mat-tab label="{{'company.resource-tab'|translate}}" [class.active]="selectedTabId==1"></mat-tab>
+      <mat-tab label="{{'company.visit-tab'|translate}}" [class.active]="selectedTabId==2"></mat-tab>
+      <mat-tab label="{{'company.recommendation-tab'|translate}}" [class.active]="selectedTabId==3"></mat-tab>
     </mat-tab-group>
   </div>
 
   <div class="Content">
-    <div [ngSwitch]="selectedTab">
-      <app-visits *ngSwitchCase="'Visits'" [idCompany]="idSelectedCompany"></app-visits>
-      <app-resource *ngSwitchCase="'Resources'" [idCompany]="idSelectedCompany"></app-resource>
-      <app-recommendation *ngSwitchCase="'Recommendations'" [idCompany]="idSelectedCompany"></app-recommendation>
+    <div [ngSwitch]="selectedTabId">
+      <app-resource *ngSwitchCase="1" [idCompany]="idSelectedCompany"></app-resource>
+      <app-visits *ngSwitchCase="2" [idCompany]="idSelectedCompany"></app-visits>
+      <app-recommendation *ngSwitchCase="3" [idCompany]="idSelectedCompany"></app-recommendation>
       <div *ngSwitchDefault></div>
     </div>
   </div>
